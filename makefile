@@ -22,6 +22,9 @@ build-ginga: $(BUILD_LIBDIRS)
 	@echo "  Installing ginga"
 	@$(MAKE) -C src/$(@:build-%=%) install
 
+distclean:
+	@rm build -rf
+
 # Dependencies
 build-dtv-connector: build-dtv-util
 build-gingacc-contextmanager: build-dtv-util build-gingacc-system
