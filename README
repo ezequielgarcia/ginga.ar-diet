@@ -1,0 +1,60 @@
+Dietetic Ginga.ar
+-----------------
+
+This is a patched version of Ginga.ar. Currently, the main goals of this project are:
+
+* Strip the CMake build system and replace by plain GNU makefiles.
+* Strip Boost library dependency, and replace its functionality by POSIX interfaces.
+
+If you are wondering why anyone would do this
+---------------------------------------------
+
+There is nothing wrong with CMake or Boost, they are both great, widely used tools.
+However, for embedded platforms it may be of interest to tweak the building process,
+changing compile and linker flags, using specific headers and/or linking to specifically 
+located libraries. For this, it may be easier to use makefiles.
+
+As for the Boost removal, it simply obeys a matter of size reduction, as Boost libraries
+are not small and its funcionality can be achieved by standard Posix interfaces.
+This can be compared to Busybox vs. GNU (Busybox replaces standard tools) or
+ulibc vs glibc (ulibc is a reduced version of glibc aimed at embedded platforms).
+
+In the end, this is just my own experiment. If you want to report any bugs,
+place an issue on github, send me patch or a pull request.
+
+Authors
+-------
+
+The Ginga project was originally developed by Telemidia Laboratory at PUC-RIO. 
+Further development was carried by LIFIA at UNLP, you can get the original 
+Ginga.ar source from here:
+
+http://comunidad.ginga.org.ar/
+http://tvd.lifia.info.unlp.edu.ar/ginga.ar/
+
+This project is based in Ginga.ar version 1.2.0.
+
+License
+-------
+
+Copyright: 1989-2007 PUC-RIO/LABORATORIO TELEMIDIA, All Rights Reserved.
+Copyright: 2010 LIFIA - Facultad de Informatica - Univ. Nacional de La Plata
+
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU General Public License version 2 as published by
+the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License version 2 for more
+details.
+
+You should have received a copy of the GNU General Public License version 2
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA
+
+For further information contact:
+ncl @ telemidia.puc-rio.br
+http://www.ncl.org.br
+http://www.ginga.org.br
+http://www.telemidia.puc-rio.br

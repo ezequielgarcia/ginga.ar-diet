@@ -1,0 +1,14 @@
+# pkg-config source file
+
+prefix=/opt/STM/STLinux-2.4/devkit/sh4/target
+exec_prefix=${prefix}
+libdir=/opt/STM/STLinux-2.4/devkit/sh4/target/usr/lib/ginga
+includedir=/opt/STM/STLinux-2.4/devkit/sh4/target/usr/include/ginga/player
+
+Name: telemidiautil 
+Description: This is the TeleMidia Util library.
+Version: 2.1pre21
+Requires: 
+Conflicts:
+Libs: -L${libdir} -ltelemidialinks
+Cflags: -I${includedir}

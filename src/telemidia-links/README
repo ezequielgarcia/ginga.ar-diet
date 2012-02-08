@@ -1,0 +1,36 @@
+This is the TeleMidia Links project. It is a modified version of links
+browser to be compiled as a library compliant with GingaNCL player adapters.
+
+The autogen.sh script does all the magic calls to automake/autoconf and
+friends that are needed to configure the compiling environment.
+
+DEPENDENCIES
+============
+-> libtool  >= 1.3.4
+-> autoconf >= 2.13
+-> automake >= 1.4
+-> directfb >= 1.0 (www.directfb.org)
+-> libtiff
+-> libjpeg
+-> libpng
+-> libz
+-> libpthread
+-> libssl
+-> libcrypto
+-> libgssapi_krb5
+-> libkrb5
+-> libcom_err
+-> libk5crypto
+-> libresolv
+-> libgpm
+
+INSTALLATION
+============
+As mentioned above, autogen.sh does all the `configure' magic.
+So the installation steps are:
+   $ ./autogen.sh --enable-graphics --with-directfb --enable-javascript \
+                  --without-x --without-sdl
+   $ make
+   $ make install
+If you need to customize any path or regular `configure' value, please
+refer to the INSTALL file.
