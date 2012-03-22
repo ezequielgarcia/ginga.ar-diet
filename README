@@ -22,6 +22,12 @@ ulibc vs glibc (ulibc is a reduced version of glibc aimed at embedded platforms)
 In the end, this is just my own experiment. If you want to report any bugs,
 place an issue on github, send me patch or a pull request.
 
+Installation
+------------
+
+Installation needs some tweaking, so you may experience some roughness.
+I'm working on it, trying to remove hardcoded crap and such. Meanwhile, if you need help, contact me.
+
 Authors
 -------
 
