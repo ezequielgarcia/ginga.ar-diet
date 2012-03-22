@@ -107,7 +107,7 @@ namespace player {
 		int surfaceW, surfaceH;
 
 		if (isXmlStr(mrl)) {
-			mrl = (DATA_PREFIX_PATH "/lib/ginga/epgfactory/src/" +
+			mrl = (DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/epgFactory/src/" +
 					mrl.substr(mrl.find_last_of("/"),
 							mrl.length() - mrl.find_last_of("/")));
 		}
@@ -284,10 +284,10 @@ namespace player {
 		}else if (name == "fontFamily" && value != ""){
 			int i=0;
 			vector<string>* paramFonts =  split(value, ",");
-			while(i < paramFonts->size() and (not fileExists(DATA_PREFIX_PATH "/share/ginga/font/" + (*paramFonts)[i] + ".ttf")))
+			while(i < paramFonts->size() and (not fileExists(DATA_PREFIX_PATH "/etc/ginga/player/fonts/" + (*paramFonts)[i] + ".ttf")))
 				i++;
 			if( i < paramFonts->size()){
-				string uri = DATA_PREFIX_PATH "/share/ginga/font/" + (*paramFonts)[i];
+				string uri = DATA_PREFIX_PATH "/etc/ginga/player/fonts/" + (*paramFonts)[i];
 				setFontFamily(uri);
 				setFont(uri + getFontProperties());
 			}

@@ -109,8 +109,8 @@ namespace player {
 		this->style = "Normal";
 		this->surface = new DFBSurface();
 
-		setFont(DATA_PREFIX_PATH "/share/ginga/font/vera.ttf");
-		this->setFontFamily(DATA_PREFIX_PATH "/share/ginga/font/vera");
+		setFont(DATA_PREFIX_PATH "/etc/ginga/player/fonts/vera.ttf");
+		this->setFontFamily(DATA_PREFIX_PATH "/etc/ginga/player/fonts/vera");
 		
 		if (this->surface != NULL) {
 			this->surface->setCaps(
@@ -125,7 +125,7 @@ namespace player {
 			int fontSize, IColor* fontColor) {
 
 		string aux;
-		aux = DATA_PREFIX_PATH "/share/ginga/font/decker.ttf";
+		aux = DATA_PREFIX_PATH "/etc/ginga/player/fonts/decker.ttf";
 		if (fontSize < 1 || s == NULL || text == "") {
 			return 0;
 		}

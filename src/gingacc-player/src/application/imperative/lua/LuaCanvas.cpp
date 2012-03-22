@@ -78,7 +78,7 @@ using namespace ::br::pucrio::telemidia::ginga::core::system::io;
 #define REFFILL           (-3)
 #define REFFRAME          (-4)
 #define REFARC            (-5)
-#define FONTDIR   DATA_PREFIX_PATH "/share/ginga/font/"
+#define FONTDIR   DATA_PREFIX_PATH "/etc/ginga/player/fonts/"
 #define CHECKCANVAS(L) ((Canvas*) luaL_checkudata(L, 1, LUAPLAYER_CANVAS))
 
 typedef struct Canvas {
@@ -265,7 +265,7 @@ static int l_attrFont (lua_State* L)
 	if (!boost::filesystem::exists(path)){
 		cout<<"LUA ERROR, invalid font path: " <<path<<endl;
 		path[0] = '\0';
-		strncat(path, DATA_PREFIX_PATH "/share/ginga/font/vera.ttf", 255);		
+		strncat(path, DATA_PREFIX_PATH "/etc/ginga/player/fonts/vera.ttf", 255);
 	}
 	font = new DFBFontProvider(path, canvas->font.size);
 	canvas->sfc->setFont((void*)font);

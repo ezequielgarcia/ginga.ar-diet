@@ -183,18 +183,18 @@ namespace lssm {
 
 		data = pem->createNclPlayerData();
 
-		if (fileExists(DATA_PREFIX_PATH "/share/ginga/tuner/tuning.png")) {
+		if (fileExists(DATA_PREFIX_PATH "/etc/ginga/tuner/tuning.png")) {
 #if HAVE_COMPSUPPORT
 			tuningWindow = ((WindowCreator*)(cm->getObject("Window")))(
 					data->x, data->y, data->w, data->h);
 
 			s = ((ImageRenderer*)(cm->getObject("ImageRenderer")))(
-					(char*)(DATA_PREFIX_PATH "/share/ginga/tuner/tuning.png"));
+					(char*)(DATA_PREFIX_PATH "/etc/ginga/tuner/tuning.png"));
 
 #else
 			tuningWindow = new DFBWindow(data->x, data->y, data->w, data->h);
 			s = ImagePlayer::renderImage(
-					DATA_PREFIX_PATH "/share/ginga/tuner/tuning.png");
+					DATA_PREFIX_PATH "/etc/ginga/tuner/tuning.png");
 #endif
 
 			((IWindow*)tuningWindow)->setCaps(

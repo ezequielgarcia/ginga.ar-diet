@@ -85,7 +85,7 @@ namespace text {
 		if (descriptor != NULL) {
 			paramValue = descriptor->getParameterValue("x-setFontUri");
 			if (paramValue == "") {
-				paramValue = DATA_PREFIX_PATH "/share/ginga/font/decker.ttf";
+				paramValue = DATA_PREFIX_PATH "/etc/ginga/player/fonts/decker.ttf";
 			}
 			player->setPropertyValue("x-setFontUri", paramValue);
 
