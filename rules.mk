@@ -25,6 +25,8 @@ install_headers: ../../build/include/lifia/$(PROJECT_NAME)
 	$(Q)cd include/ && cp -a --parents $(HEADERS:include/%=%) ../../../build/include/lifia/$(PROJECT_NAME) 
 
 install: install_headers
+	$(Q)test -d files && mkdir -p ../../build/etc/ginga/$(PROJECT_NAME) && \
+		cp -a files/* ../../build/etc/ginga/$(PROJECT_NAME) || true
 	$(Q)mkdir -p ../../build/lib/lifia
 	$(Q)cp -a $(STATIC_OUT) ../../build/lib/lifia
 
