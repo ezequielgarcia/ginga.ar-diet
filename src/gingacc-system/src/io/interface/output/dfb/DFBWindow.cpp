@@ -612,8 +612,6 @@ namespace io {
 	/*Se utiliza para el rendering de imagenes de un NCL*/
 	void DFBWindow::renderFrom(ISurface* surface) {
 		IDirectFBSurface* contentSurface;
-		ISurface* sur;
-		IDirectFBSurface* s2;
 		int w, h;
 
 		if (win != NULL && !isMine(surface)) {
@@ -625,8 +623,6 @@ namespace io {
 			DFBCHECK(contentSurface->GetSize(contentSurface, &w, &h));
 			if (winSur != NULL && winSur != contentSurface) {
 
-				_DFBSurfaceMutexSingleton.instance().lock();
-
 				DFBCHECK(winSur->Clear(winSur,
 					        DFBSurface::DFB_BG_R,
 						DFBSurface::DFB_BG_G,
@@ -637,29 +633,26 @@ namespace io {
 						DFBCHECK(winSur->StretchBlit(
 								winSur, contentSurface, NULL, NULL));
 					} else {
-						sur = new DFBSurface(width, height);
-						s2 = (IDirectFBSurface*)(sur->getContent());
-						DFBCHECK(s2->StretchBlit(
-							    s2,
+
+						DFBCHECK(winSur->StretchBlit(
+							    winSur,
 							    contentSurface,
 							    NULL,
 							    NULL));
-
-						DFBCHECK(s2->Flip(s2, NULL, (DFBSurfaceFlipFlags)DSFLIP_BLIT));
-
-						DFBCHECK(winSur->Blit(winSur, s2, NULL, 0, 0));
-						DFBCHECK(winSur->Flip(winSur, NULL, (DFBSurfaceFlipFlags) DSFLIP_BLIT));
-                                                s2->Release(s2);
-						delete sur;
-                                                delete s2;
 					}
 
 				} else {
 					DFBCHECK(winSur->Blit(winSur, contentSurface, NULL, 0, 0));
 				}
+
+
+				_DFBSurfaceMutexSingleton.instance().lock();
+
 				DFBCHECK(winSur->Flip(winSur, NULL, (DFBSurfaceFlipFlags)DSFLIP_BLIT));
 
 				_DFBSurfaceMutexSingleton.instance().unlock();
+
+				/* TODO: Copy to SD here? */
 			}
 		}
 	}
