@@ -6,7 +6,3 @@
 
 /* Defines the PATH of the Unix Socket */
 #define GINGA_CONNECTOR_SOCKET "/tmp/gingaconnector.socket"
-
-/* Prefix of the data path*/
-#define DATA_PREFIX_PATH "/root/ginga"
-

@@ -12,7 +12,3 @@
 
 /* Def to 1 if you have FFMpeg support */
 #define HAVE_XINE 
-
-/* Prefix of the data path*/
-#define DATA_PREFIX_PATH "/root/ginga"
-

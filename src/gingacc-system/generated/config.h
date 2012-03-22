@@ -12,7 +12,3 @@
 
 /* Def of major and minor version of directfb */
 #define DIRECTFB_MAJOR_MINOR 14
-
-/* Prefix of the configuration path*/
-#define CONFIG_PREFIX_PATH "/root/ginga"
-
