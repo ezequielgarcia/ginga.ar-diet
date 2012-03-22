@@ -4,23 +4,26 @@ LIBDIRS = dtv-connector dtv-util gingacc-system gingacc-ic gingacc-player gingal
 BUILD_LIBDIRS = $(LIBDIRS:%=build-%)
 CLEAN_DIRS = clean-ginga $(LIBDIRS:%=clean-%)
 
+MAKE_BUILD = $(MAKE) -s -C src/$(@:build-%=%)
+MAKE_CLEAN = $(MAKE) -s -C src/$(@:clean-%=%)
+
 all: build-ginga $(BUILD_LIBDIRS)
 $(BUILD_LIBDIRS):
 	@echo "  Building library "$(@:build-%=%)
-	@$(MAKE) -C src/$(@:build-%=%)
+	@$(MAKE_BUILD)
 	@echo "  Installing library "$(@:build-%=%)
-	@$(MAKE) -C src/$(@:build-%=%) install
+	@$(MAKE_BUILD) install
 
 clean: $(CLEAN_DIRS)
 $(CLEAN_DIRS): 
 	@echo "  Cleaning "$(@:clean-%=%)
-	@$(MAKE) -C src/$(@:clean-%=%) clean
+	@$(MAKE_CLEAN) clean
 
 build-ginga: $(BUILD_LIBDIRS)
 	@echo "  Building ginga"
-	@$(MAKE) -C src/$(@:build-%=%)
+	@$(MAKE_BUILD)
 	@echo "  Installing ginga"
-	@$(MAKE) -C src/$(@:build-%=%) install
+	@$(MAKE_BUILD) install
 
 distclean:
 	@rm build -rf
