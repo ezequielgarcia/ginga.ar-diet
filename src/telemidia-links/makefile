@@ -4,7 +4,7 @@ PROJECT_NAME = telemidia-links
 STATIC_OUT = lib$(PROJECT_NAME).a
 
 # Here we will override a bunch of variables from config.mk
-CC  = sh4-linux-gcc
+CC  = gcc
 LD  = $(CC)
 
 CFLAGS 	= -O2 $(DFB_CFLAGS) -DHAVE_CONFIG_H -I.
