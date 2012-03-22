@@ -1,11 +1,11 @@
 ###############################################################################
 ## YOU CAN TOUCH THESE (OR YOU CAN OVERRIDE IT IN SUBDIR MAKEFILE)
 
-CC  = sh4-linux-g++
-AR  = sh4-linux-ar
+CC  = g++
+AR  = ar
 LD  = $(CC)
 RM  = rm
-STRIP  = sh4-linux-strip
+STRIP  = strip
 Q = @
 ECHO = @echo
 
