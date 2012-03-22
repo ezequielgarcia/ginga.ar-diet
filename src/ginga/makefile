@@ -23,8 +23,8 @@ $(PROJECT_NAME): $(OBJECTS) $(LIBS_INTERNAL)
 	$(Q)$(STRIP) -s $(PROJECT_NAME)
 
 install: $(PROJECT_NAME)
-	$(Q)mkdir -p ../../build/sbin/ginga
-	$(Q)cp $(PROJECT_NAME) ../../build/sbin/ginga
+	$(Q)mkdir -p ../../build/bin
+	$(Q)cp $(PROJECT_NAME) ../../build/bin/
 	$(Q)cp src/ginga.version ../../build
 	
 clean:
