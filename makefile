@@ -25,7 +25,7 @@ build-ginga: $(BUILD_LIBDIRS)
 	@echo "  Installing ginga"
 	@$(MAKE_BUILD) install
 
-distclean:
+distclean: clean
 	@rm build -rf
 
 # Dependencies
