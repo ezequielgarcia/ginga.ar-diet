@@ -89,7 +89,7 @@ namespace text {
 				else{
 					paramValue = trim(descriptor->getParameterValue("fontUri"));
 					if (paramValue == "") {
-						paramValue = DATA_PREFIX_PATH "/etc/ginga/player/fonts/vera.ttf";
+						paramValue = PREFIX_PATH "/player/fonts/vera.ttf";
 					}
 					player->setPropertyValue("fontUri", paramValue);
 				}

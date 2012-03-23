@@ -69,8 +69,8 @@ namespace ginga {
 namespace core {
 namespace contextmanager {
 	ContextManager::ContextManager() {
-		usersUri    = CONFIG_PREFIX_PATH "/etc/ginga/contextmanager/users.ini";
-		contextsUri = CONFIG_PREFIX_PATH "/etc/ginga/contextmanager/contexts.ini";
+		usersUri    = PREFIX_PATH "/contextmanager/users.ini";
+		contextsUri = PREFIX_PATH "/contextmanager/contexts.ini";
 		users       = new map<int, IGingaUser*>;
 		contexts    = new map<int, map<string, string>*>;
 		curUserId   = -1;

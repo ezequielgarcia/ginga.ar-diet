@@ -128,25 +128,25 @@ namespace ncl {
 		compRollerH = 113 * rate;
 
 		mrls = new vector<string>;
-		mrls->push_back(DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/img/roller/b1.png");
-		mrls->push_back(DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/img/roller/b2.png");
-		mrls->push_back(DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/img/roller/b3.png");
-		mrls->push_back(DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/img/roller/b4.png");
-		mrls->push_back(DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/img/roller/b5.png");
-		mrls->push_back(DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/img/roller/b6.png");
-		mrls->push_back(DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/img/roller/b7.png");
-		mrls->push_back(DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/img/roller/b8.png");
+		mrls->push_back(PREFIX_PATH "/ncl-presenter/img/roller/b1.png");
+		mrls->push_back(PREFIX_PATH "/ncl-presenter/img/roller/b2.png");
+		mrls->push_back(PREFIX_PATH "/ncl-presenter/img/roller/b3.png");
+		mrls->push_back(PREFIX_PATH "/ncl-presenter/img/roller/b4.png");
+		mrls->push_back(PREFIX_PATH "/ncl-presenter/img/roller/b5.png");
+		mrls->push_back(PREFIX_PATH "/ncl-presenter/img/roller/b6.png");
+		mrls->push_back(PREFIX_PATH "/ncl-presenter/img/roller/b7.png");
+		mrls->push_back(PREFIX_PATH "/ncl-presenter/img/roller/b8.png");
 
 		animes = new vector<AnimePlayer*>;
 
 #if HAVE_COMPSUPPORT
 		bg = ((WindowCreator*)(cm->getObject("Window")))(l, t, w, h);
 		s = ((ImageRenderer*)(cm->getObject("ImageRenderer")))(
-				(char*)(DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/img/roller/loading.png"));
+				(char*)(PREFIX_PATH "/ncl-presenter/img/roller/loading.png"));
 #else
 		bg = new DFBWindow(l, t, w, h);
 		s = ImagePlayer::renderImage(
-				DATA_PREFIX_PATH "/etc/ginga/ncl-presenter/img/roller/loading.png");
+				PREFIX_PATH "/ncl-presenter/img/roller/loading.png");
 #endif
 
 		bg->setCaps(bg->getCap("ALPHACHANNEL"));
@@ -292,7 +292,7 @@ namespace ncl {
 		string fontUri;
 		int fontSize;
 
-		fontUri = DATA_PREFIX_PATH "/etc/ginga/player/fonts/decker.ttf";
+		fontUri = PREFIX_PATH "/player/fonts/decker.ttf";
 		fontSize = 12;
 
 		if (!fileExists(fontUri)) {

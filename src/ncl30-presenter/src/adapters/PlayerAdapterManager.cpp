@@ -245,7 +245,7 @@ namespace adapters {
 		string line, key, value;
 
 		fisMime.open(
-				CONFIG_PREFIX_PATH "/etc/ginga/ncl-presenter/config/formatter/players/mimedefs.ini",
+				PREFIX_PATH "/ncl-presenter/config/formatter/players/mimedefs.ini",
 				ifstream::in);
 
 		if (!fisMime.is_open()) {
@@ -266,7 +266,7 @@ namespace adapters {
 
 		fisMime.close();
 
-		fisCtrl.open(CONFIG_PREFIX_PATH "/etc/ginga/ncl-presenter/config/formatter/players/ctrldefs.ini");
+		fisCtrl.open(PREFIX_PATH "/ncl-presenter/config/formatter/players/ctrldefs.ini");
 		if (!fisCtrl.is_open()) {
 			cout << "PlayerAdapterManager: can't open ctrldefs.ini" << endl;
 			return;

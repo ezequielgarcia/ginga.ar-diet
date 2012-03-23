@@ -78,7 +78,7 @@ namespace components {
 		string line, key, value;
 
 		fisMime.open(
-				CONFIG_PREFIX_PATH "/etc/ginga/ncl/config/mimedefstype.ini",
+				PREFIX_PATH "/ncl/config/mimedefstype.ini",
 				ifstream::in);
 
 		if (!fisMime.is_open()) {

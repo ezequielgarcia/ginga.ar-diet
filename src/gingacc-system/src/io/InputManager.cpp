@@ -122,7 +122,7 @@ namespace io {
 		imperativeIntervalTime = 0;
 		declarativeIntervalTime = 0;
 
-		strVar = CONFIG_PREFIX_PATH "/etc/ginga/system/config/input.cfg";
+		strVar = PREFIX_PATH "/system/config/input.cfg";
 		fis.open(strVar.c_str(), ifstream::in);
 		if (!fis.is_open()) {
 			cout << "InputManager: can't open input file:";

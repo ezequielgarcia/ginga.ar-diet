@@ -157,7 +157,7 @@ namespace player {
 		switch (status) {
 			case PAUSE:
 				cout << "ShowButton::run PAUSE" << endl;
-				render(DATA_PREFIX_PATH "/etc/ginga/player/images/pauseButton.png");
+				render(PREFIX_PATH "/player/images/pauseButton.png");
 				break;
 
 			case STOP:
@@ -166,7 +166,7 @@ namespace player {
 					release();
 				}
 
-				render(DATA_PREFIX_PATH "/etc/ginga/player/images/stopButton.png");
+				render(PREFIX_PATH "/player/images/stopButton.png");
 				::usleep(1000000);
 				release();
 				break;
@@ -177,7 +177,7 @@ namespace player {
 					release();
 				}
 
-				render(DATA_PREFIX_PATH "/etc/ginga/player/images/playButton.png");
+				render(PREFIX_PATH "/player/images/playButton.png");
 				::usleep(1000000);
 				release();
 				break;
