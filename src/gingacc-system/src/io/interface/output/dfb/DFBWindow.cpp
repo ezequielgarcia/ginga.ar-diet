@@ -675,14 +675,12 @@ namespace io {
 			r = &rect;*/
 
 			if (winSur != NULL) {
-				_DFBSurfaceMutexSingleton.instance().lock();
 				DFBCHECK(winSur->SetBlittingFlags(
 						winSur,
 						(DFBSurfaceBlittingFlags)DSBLIT_BLEND_ALPHACHANNEL));
 
 				DFBCHECK(winSur->Blit(
 						winSur, srcSur, NULL, src->getX(), src->getY()));
-				_DFBSurfaceMutexSingleton.instance().unlock();
 			}
 			src->unlock();
 		}
@@ -707,13 +705,11 @@ namespace io {
 			r = &rect;*/
 
 			if (winSur != NULL) {
-				_DFBSurfaceMutexSingleton.instance().lock();
 				DFBCHECK(winSur->SetBlittingFlags(
 						winSur,
 						(DFBSurfaceBlittingFlags)DSBLIT_BLEND_ALPHACHANNEL));
 
 				DFBCHECK(winSur->StretchBlit(winSur, srcSur, NULL, NULL));
-				_DFBSurfaceMutexSingleton.instance().unlock();
 			}
 			src->unlock();
 		}

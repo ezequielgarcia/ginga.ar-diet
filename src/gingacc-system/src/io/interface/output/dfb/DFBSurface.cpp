@@ -230,9 +230,7 @@ namespace io {
 		if (sur == NULL) {
 			return;
 		}
-		_DFBSurfaceMutexSingleton.instance().lock();
 		DFBCHECK(sur->Clear(sur, DFB_BG_R, DFB_BG_G, DFB_BG_B, DFB_BG_A));
-		_DFBSurfaceMutexSingleton.instance().unlock();
 		if (parent != NULL) {
 			parent->clearContent();
 		}
@@ -242,9 +240,7 @@ namespace io {
 		if (sur == NULL) {
 			return;
 		}
-		_DFBSurfaceMutexSingleton.instance().lock();
 		DFBCHECK(sur->Clear(sur, DFB_BG_R, DFB_BG_G, DFB_BG_B, DFB_BG_A));
-		_DFBSurfaceMutexSingleton.instance().unlock();
 	}
 
 	ISurface* DFBSurface::getSubSurface(int x, int y, int w, int h) {
@@ -480,7 +476,6 @@ namespace io {
 			}
 
 			if (sur != NULL) {
-				_DFBSurfaceMutexSingleton.instance().lock();
 				DFBCHECK(sur->SetBlittingFlags(
 						sur,
 						(DFBSurfaceBlittingFlags)(
@@ -488,7 +483,6 @@ namespace io {
 								DSBLIT_SRC_COLORKEY)));
 
 				DFBCHECK( sur->Blit(sur, (IDirectFBSurface*)(src->getContent()), r, x, y));
-				_DFBSurfaceMutexSingleton.instance().unlock();
 			}
 		}
 	}
