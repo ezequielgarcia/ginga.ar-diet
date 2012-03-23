@@ -481,8 +481,11 @@ namespace io {
 			}
 
 			_DFBSurfaceMutexSingleton.instance().lock();
+
 			DFBCHECK(winSur->Flip(winSur, NULL, (DFBSurfaceFlipFlags)0));
+
 			_DFBSurfaceMutexSingleton.instance().unlock();
+			_DFBSurfaceMutexSingleton.instance().copyToSD();
 		}
 		//unlock();
 	}
@@ -651,8 +654,7 @@ namespace io {
 				DFBCHECK(winSur->Flip(winSur, NULL, (DFBSurfaceFlipFlags)DSFLIP_BLIT));
 
 				_DFBSurfaceMutexSingleton.instance().unlock();
-
-				/* TODO: Copy to SD here? */
+				_DFBSurfaceMutexSingleton.instance().copyToSD();
 			}
 		}
 	}

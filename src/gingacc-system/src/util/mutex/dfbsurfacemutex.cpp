@@ -79,21 +79,17 @@ using namespace std;
 	void DFBSurfaceMutex::lock() {
 		if(_enable && _open) {
 			BlitterMutexLock(_accessMutexId);
-		//	cout << "Rendering layer controller locked"<<endl;
 		}
 	}
 
 	void DFBSurfaceMutex::unlock() {
 		if(_enable && _open) {
 			BlitterMutexUnlock(_accessMutexId);
-		//	cout << "Rendering layer controller unlocked"<<endl;
-			copyToSD();
 		}
 	}
 
 	void DFBSurfaceMutex::copyToSD() {
 		if(_enable && _open) {
 			BlitterMutexUnlock(_copyMutexId);
-			cout << "Rendering layer controller copy to SD"<<endl;
 		}
 	}

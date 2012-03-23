@@ -457,6 +457,8 @@ namespace io {
 			_DFBSurfaceMutexSingleton.instance().lock();			
 			DFBCHECK( sur->Flip (sur, NULL, (DFBSurfaceFlipFlags)DSFLIP_BLIT));
 			_DFBSurfaceMutexSingleton.instance().unlock();
+			/* Is this really needed? */
+			_DFBSurfaceMutexSingleton.instance().copyToSD();
 		}
 	}
 
