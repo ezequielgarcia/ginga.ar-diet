@@ -25,8 +25,77 @@ place an issue on github, send me patch or a pull request.
 Installation
 ------------
 
-Installation needs some tweaking, so you may experience some roughness.
-I'm working on it, trying to remove hardcoded crap and such. Meanwhile, if you need help, contact me.
+Once you execute 'make' the whole ginga middleware is installed inside build/
+directory. There you'll find three different kind of stuff:
+
+* headers inside (build/include/)
+* static libraries (build/lib/)
+* Ginga binary executable (build/bin/)
+* config and data files
+
+The first two, headers and static libs, are only required for development, 
+not to run Ginga. So, you won't need this unless you need to link against 
+some internal (static) library.
+
+The last two are required if you want to run Ginga, and if you
+don't want to run it, why are you wasting your time reading this?
+
+Configuration files
+-------------------
+
+The Ginga binary requires config and data files. These are located
+under directories according to their subsystem (system, ncl, etc).
+
+So to run Ginga correctly you will have to copy them to a suitable
+location. This location is configurable with PREFIX_PATH make variable
+in config.mk.
+
+The default value is /home/zeta/ginga. So you'll have to copy files
+to this directory. They should look like this:
+
+/home/zeta/ginga/
+|-- contextmanager
+|-- ncl
+|   `-- config
+|-- ncl-presenter
+|   |-- config
+|   |-- epgFactory
+|   `-- img
+|-- player
+|   |-- fonts
+|   |-- images
+|   `-- scripts
+`-- system
+    `-- config
+
+When running Ginga if you find any of these messages (or similar)
+then you should check you've install these files properly:
+
+  can't open input file:/home/zeta/ginga/system/config/input.cfg
+  can't open mimedefs.ini
+  can't open config file '/home/zeta/ginga/contextmanager/users.ini'
+  can't open cfg file '/home/zeta/ginga/contextmanager/contexts.ini'
+
+Scripts files
+-------------
+
+Some Ginga NCL applications also require a few Lua scripts.
+They are installed inside build/player/scripts.
+There are two ways of handling this:
+
+  1. You can copy them to Lua predefined paths, 
+     so Lua can find them. This paths are usually,
+     /usr/local/share/lua/5.1/ or usr/share/lua/5.1/.
+
+  2. You can define LUA_PATH in your environment
+     (.bashrc, bash_profile, etc) so it looks like this:
+     LUA_PATH="$LUA_PATH;/home/zeta/ginga/player/scripts/?.lua;"
+
+If you find a message like:
+
+  PANIC: unprotected error in call to Lua API (module 'tcp_event' not found:
+
+then probably you haven't installed this files properly.
 
 Authors
 -------
