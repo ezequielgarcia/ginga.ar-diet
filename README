@@ -22,6 +22,23 @@ ulibc vs glibc (ulibc is a reduced version of glibc aimed at embedded platforms)
 In the end, this is just my own experiment. If you want to report any bugs,
 place an issue on github, send me patch or a pull request.
 
+UPDATE: 
+Since v1.2.0 boost removal is no longer an important issue. 
+The reason is that Ginga no longer depends on boost_serialization,
+a large boost component. The remaining Boost dependences are 
+not large enough to matter.
+
+Dependencies
+------------
+
+* DirectFB 1.4.x
+* Boost: system, thread, filesystem
+* png, jpeg, tiff, gif libraries
+* lua 5.1
+* xerces-c (for XML parsing)
+* ssl
+* curl
+
 Installation
 ------------
 
@@ -96,6 +113,12 @@ If you find a message like:
   PANIC: unprotected error in call to Lua API (module 'tcp_event' not found:
 
 then probably you haven't installed this files properly.
+
+Bloat-o-meter
+-------------
+
+For x86 the resulting Ginga executable is 4.8 MB.
+The rest of the distributable config/resource files total < 1 MB.
 
 Authors
 -------
